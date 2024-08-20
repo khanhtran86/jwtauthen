@@ -13,7 +13,7 @@ import java.util.Date;
 @Component
 /*Đây là class giúp extract thông tin từ jwt hoặc generate thông tin ra jwt*/
 public class JwtTokenProvider {
-    private String JWT_SECRET = "2D4A614E645267556B58703273357638792F423F4428472B4B6250655368566D2D4A614E645267556B58703273357638792F423F4428472B4B6250655368566D2D4A614E645267556B58703273357638792F423F4428472B4B6250655368566D";
+    private String JWT_SECRET = "dunglamsamsungdunghaydilungtungdunglamsamsungdunghaydilungtungdunglamsamsungdunghaydilungtung";
     private final Long JWT_EXPIRATION = 604800000L;
     public String generateToken(CustomUserDetails userDetails)
     {

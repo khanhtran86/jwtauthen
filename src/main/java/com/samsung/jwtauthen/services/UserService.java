@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,5 +21,15 @@ public class UserService implements UserDetailsService {
             throw  new UsernameNotFoundException(username);
         else
             return new CustomUserDetails(user);
+    }
+
+    public void AddUser(User user) throws Exception {
+        if(userRepository.findByUsername(user.getUsername())!=null)
+        {
+            throw new Exception("User already in used");
+        }
+        else {
+            userRepository.save(user);
+        }
     }
 }

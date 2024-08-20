@@ -46,7 +46,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter{
                 }
             }
         }
-        filterChain.doFilter(request, response);
+        filterChain.doFilter(request, response); //Tiep tuc filter cho cac method filter khac trong filter chain
     }
 
     private String getJwtFromRequest(HttpServletRequest request)

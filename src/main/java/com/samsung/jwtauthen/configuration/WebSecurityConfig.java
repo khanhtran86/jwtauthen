@@ -47,8 +47,8 @@ public class WebSecurityConfig{
                 .cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.disable())
                 .csrf(httpSecurityCsrfConfigurer -> httpSecurityCsrfConfigurer.disable())
                 .authorizeHttpRequests((requests)->requests
-                        .requestMatchers(HttpMethod.POST,"/api/login").permitAll()
-                        .anyRequest().permitAll());
+                        .requestMatchers("/api/login", "/api/register").permitAll()
+                        .anyRequest().authenticated());
 
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
         return http.build();
